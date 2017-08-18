@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from pymongo import MongoClient
 from django.shortcuts import render
 from django.http import HttpResponse
 
 
 def index(request):
-    context = {'letters': ["a", "b", "c", "d", "e"]}
-    return render(request, 'index.html', context)
+	client = MongoClient('localhost', 27017)
+	context = client['database-hackaton'].professores.find_one()
+	return render(request, 'index.html', context)

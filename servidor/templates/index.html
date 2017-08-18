@@ -1,8 +1,8 @@
-{% if letters %}
+{% if nome %}
     <ul>
-    {% for letter in letters %}
-        <li><a href="/{{letter}}/">{{ letter }}</a></li>
-    {% endfor %}
+    <!-- {% for letter in letters %} -->
+        <li><a href="/{{nome}}/">{{ nome }}</a></li>
+    <!-- {% endfor %} -->
     </ul>
 {% else %}
     <p>No polls are available.</p>
