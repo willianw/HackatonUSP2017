@@ -1,0 +1,9 @@
+{% if letters %}
+    <ul>
+    {% for letter in letters %}
+        <li><a href="/{{letter}}/">{{ letter }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
