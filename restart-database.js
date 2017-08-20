@@ -1,5 +1,6 @@
-db.professores.remove({})
-db.professores.insert({
+db.pesquisadores.remove({})
+db.pesquisadores.insert({
+	_id: ObjectId("100000000000000000000000"),
 	nome:'Marcia',
 	sobrenome: 'Kazlenvsky',
 	instituto: 'Instituto de Ciências Farmacêuticas',
@@ -12,7 +13,8 @@ db.professores.insert({
 		fim: 2005,
 		tags: ['sertraline', 'producion-efficiency', 'catalyst']}
 	]})
-db.professores.insert({
+db.pesquisadores.insert({
+	_id: ObjectId("100000000000000000000001"),
 	nome:'Henrique',
 	sobrenome: 'Custódio',
 	instituto: 'Faculdade de Filosofia, Letras e Ciências Humanas',
@@ -25,3 +27,9 @@ db.professores.insert({
 		fim: 2005,
 		tags: ['sertraline', 'producion-efficiency', 'catalyst']}
 	]})
+
+db.instituicoes.insert({
+	_id: ObjectId("200000000000000000000000"),
+	nome: 'IME'
+	localizacao: 'Sao Paulo'
+})

@@ -38,15 +38,11 @@ class Campus(Modelo):
 class Instituicao(Modelo):
     area = models.ForeignKey(GrandesAreas,  null=True)
     localizacao = models.ForeignKey(Campus, null=True)
-    #departamentos = models.ManyToManyField(Departamentos)
-
-class GrauDeInstrucao(Modelo):
-    pass
 
 class Pesquisador(Modelo):
-	instituicao = models.ForeignKey(Instituicao, null=True)
+	# instituicao = models.ForeignKey(Instituicao, null=True)
 	area_conhecimento = models.ForeignKey(MediasAreas, null=True)
-	nivel = models.ForeignKey(GrauDeInstrucao, null=True)
+	nivel = models.CharField(max_length=100, null=True)
 	# def __unicode__ (self):
 	# 	return self.nivel.encode('utf-8')
 
