@@ -77,3 +77,13 @@ def pesquisa_search(request):
 			'pesquisas': result
 		}
 		return render(request, 'pesquisador_search.html', context)
+
+def pesquisador_view(request):
+	id = request.GET['id']
+	pesquisador = Pesquisador.objects.get(id__exact=id)
+	context = {
+		'pesquisador': pesquisador,
+		'pesquisas': Pesquisa.objects.filter(pesquisadores__id = id)
+	}
+	print context
+	return render(request, 'PerfilPesquisador.html', context)

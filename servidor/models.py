@@ -12,6 +12,7 @@ from django.db.models.fields.related import *
 
 
 class Modelo(models.Model):
+	id = models.AutoField(primary_key=True)
 	nome = models.CharField(max_length=100, blank=True, null=True, default="nome")
 	def __unicode__ (self):
 		return self.nome.encode('utf-8')
@@ -45,11 +46,16 @@ class GrauDeInstrucao(Modelo):
 
 class Pesquisador(Modelo):
 	instituicao = models.ForeignKey(Instituicao, null=True)
+	sala = models.CharField(max_length=100, blank=True)
+	email = models.CharField(max_length=100, blank=True)
 	area_conhecimento = models.ForeignKey(MediasAreas, null=True)
 	nivel = models.ForeignKey(GrauDeInstrucao, null=True)
 
 class Pesquisa(Modelo):
 	pesquisadores = models.ManyToManyField(Pesquisador)
+	titulo = models.TextField(null=True)
+	start = models.IntegerField(null=True)
+	end = models.IntegerField(null=True)
 	pequena_area = models.ForeignKey(PequenasAreas, null=True)
 	nivel = models.ForeignKey(GrauDeInstrucao, null=True)
 	abstract = models.TextField()

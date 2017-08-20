@@ -1,5 +1,5 @@
 {% for pesquisador in item.pesquisadores.all %}
-{{ pesquisador.nome }},
+<a href="pesquisador?id={{ pesquisador.id }}">{{ pesquisador.nome }}</a>,
 {% endfor %}.
 <i>{{ item.nome }}</i>
 . Palavras-chave: {{ item.tags }}
@@ -7,3 +7,4 @@
 {% for pesquisa in item.bibliografia.all %}
 										{{ pesquisa.nome }}
 										{% endfor %}
+<br>
