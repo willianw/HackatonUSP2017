@@ -44,7 +44,7 @@
   }
   .logo-small {
       color: #382568;
-      font-size: 50px;
+      font-size: 50px;  
   }
   .logo {
       color: #382568;
@@ -120,17 +120,17 @@
   }
   .navbar {
       margin-bottom: 0;
-      background-color: #382568;
+      background-color: #b8cedd;
       z-index: 9999;
       border: 0;
-      font-size: 12px !important;
+      font-size: 18px !important;
       line-height: 1.42857143 !important;
       letter-spacing: 4px;
       border-radius: 0;
       font-family: Montserrat, sans-serif;
   }
   .navbar li a, .navbar .navbar-brand {
-      color: #fff !important;
+      color: #000 !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
       color: #382568 !important;
@@ -188,14 +188,21 @@
         font-size: 150px;
     }
   }
+
   /* Dropdown Button */
 .dropbtn {
-    background-color: #382568;
-    color: white;
+    background-color: #b8cedd;
+    color: #000;
     padding: 16px;
+    min-width: 400px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -225,15 +232,8 @@
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #f1f1f1}
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -246,33 +246,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
+   <img src="http://www.scs.usp.br/identidadevisual/wp-content/uploads/2013/08/usp-logo-png.png" width="122" height="90" alt="" border="0" style="position: relative; top: -3px;">
 
-
-
+    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-    <div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#services">Notícias</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#news">Notícias</a></li>
+        <li><a href="#inst">Institutos</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="jumbotron text-center">
-  <h1>Bla</h1> 
-  <p>Seu portal de artigos acadêmicos da USP</p> 
+  <img src="http://www.scs.usp.br/identidadevisual/wp-content/uploads/2013/08/usp-logo-png.png" width="122" height="90" alt="" border="0" style="position: relative; top: -3px;">
   <form>
     <div class="input-group">
-      <input type="pesquisa" class="form-control" size="10" placeholder="Digite aqui" required>
+      <input type="pesquisa" class="form-control" size="5" placeholder="Procure por artigos científicos aqui" required>
       <div class="input-group-btn">
         <button type="button" class="btn btn-danger">Pesquisa</button>
       </div>
@@ -280,26 +270,10 @@
   </form>
 </div>
 
-<!-- Container (About Section) -->
-<div id="about" class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>About Company Page</h2><br>
-      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <br><button class="btn btn-default btn-lg">Get in Touch</button>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-signal logo"></span>
-    </div>
-  </div>
-</div>
-
-
 <!-- Container (Portfolio Section) -->
   
   
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+  <div id="news" class="carousel slide text-center" data-ride="carousel">
   <h2>Notícias</h2>
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -333,12 +307,46 @@
   </div>
 </div>
 
+<div id="inst" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Institutos</h2><br>
+      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+      <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Escolha um instituto
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">IME</a>
+    <br>
+    <a class="dropdown-item" href="#">Escola Politécnica</a>
+    <br>
+    <a class="dropdown-item" href="#">FAU</a>
+    <br>
+    <a class="dropdown-item" href="#">ECA</a>
+    <br>
+    <a class="dropdown-item" href="#">FFLCH</a>
+    <br>
+    <a class="dropdown-item" href="#">GEO</a>
+    <br>
+    <a class="dropdown-item" href="#">Medicina-Pinheiros</a>
+    <br>
+    <a class="dropdown-item" href="#">Direito</a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
-  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
+  <p>Hackathon USP 2017</p>
 </footer>
 
 <script>
