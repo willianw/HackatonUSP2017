@@ -29,7 +29,7 @@
       color: #303030;
       font-weight: 400;
       margin-bottom: 30px;
-  }  
+  }
   .jumbotron {
       background-color
       color: #fff;
@@ -44,7 +44,7 @@
   }
   .logo-small {
       color: #382568;
-      font-size: 50px;  
+      font-size: 50px;
   }
   .logo {
       color: #382568;
@@ -81,7 +81,7 @@
       font-style: normal;
   }
   .panel {
-      border: 1px solid #382568; 
+      border: 1px solid #382568;
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
@@ -123,7 +123,7 @@
       background-color: #b8cedd;
       z-index: 9999;
       border: 0;
-      font-size: 18px !important;
+      font-size: 12px !important;
       line-height: 1.42857143 !important;
       letter-spacing: 4px;
       border-radius: 0;
@@ -157,7 +157,7 @@
     0% {
       opacity: 0;
       transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       transform: translateY(0%);
@@ -167,7 +167,7 @@
     0% {
       opacity: 0;
       -webkit-transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       -webkit-transform: translateY(0%);
@@ -244,22 +244,25 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
-   <img src="http://www.scs.usp.br/identidadevisual/wp-content/uploads/2013/08/usp-logo-png.png" width="122" height="90" alt="" border="0" style="position: relative; top: -3px;">
-
+   <img src="http://www.scs.usp.br/identidadevisual/wp-content/uploads/2013/08/usp-logo-png.png" width="110" height="90" alt="" border="0" style=" top: -5px;">
+   <img src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo-texto.png" alt="" width="220" height="44" border="0" style="position: relative; top: 3px;">
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#news">Notícias</a></li>
         <li><a href="#inst">Institutos</a></li>
+        <li><a href="#pesq">Pesquisadores</a></li>
+        <li><a href="#ic">Iniciação Científica</a></li>
+        <li><a href="#pos">Pós-Graduação</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="jumbotron text-center">
-  <img src="http://www.scs.usp.br/identidadevisual/wp-content/uploads/2013/08/usp-logo-png.png" width="122" height="90" alt="" border="0" style="position: relative; top: -3px;">
+  <img src="/home/eduardo/HackatonUSP2017/servidor/templates/helius.jpg" width="350" height="200" alt="" border="0" style="position: relative; top: -3px;">
   <form>
     <div class="input-group">
       <input type="pesquisa" class="form-control" size="5" placeholder="Procure por artigos científicos aqui" required>
@@ -271,8 +274,8 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-  
-  
+
+
   <div id="news" class="carousel slide text-center" data-ride="carousel">
   <h2>Notícias</h2>
     <!-- Indicators -->
@@ -339,6 +342,35 @@
 </div>
 
 
+<div id="pesq" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Pesquisadores</h2><br>
+      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+    </div>
+  </div>
+</div>
+
+
+<div id="ic" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Iniciação Científica</h2><br>
+      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+
+
+    </div>
+  </div>
+</div>
+
+<div id="pos" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Pós-Graduação</h2><br>
+      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+    </div>
+  </div>
+</div>
 
 
 
@@ -366,13 +398,13 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-   
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
     } // End if
   });
-  
+
   $(window).scroll(function() {
     $(".slideanim").each(function(){
       var pos = $(this).offset().top;
