@@ -6,13 +6,14 @@ from .models import *
 
 
 def simple_search(request):
-	query = 'FAU'
+	query = 'condimentum'
 	context = {
 		'status': 200,
+		'query': query,
 		'titulo': Pesquisa.objects.filter(nome__icontains=query),
 		'pequena_area': Pesquisa.objects.filter(pequena_area__nome__icontains=query),
 		'abstract': Pesquisa.objects.filter(abstract__icontains=query),
 		'tags': Pesquisa.objects.filter(tags__icontains=query),
 	}
 	print context
-	return render(request, 'index.html', context)
+	return render(request, 'simple_search_be.html', context)
