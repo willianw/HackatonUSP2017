@@ -1,6 +1,9 @@
 <table>
-	<tr><td>Título</td><td>{{ item.name }}</td></tr>
-	<tr><td>Pesquisadores</td><td>{{ item.pesquisadores }}</td></tr>
+	<tr><td>Título</td><td>{{ item.nome }}</td></tr>
+	<tr><td>Pesquisadores</td>
+							<td>{% for pesquisador in item.pesquisadores.all %}
+								{{ pesquisador.nome }}
+								{% endfor %}</td></tr>
 	<tr><td>Tema</td><td>{{ item.pequena_area.nome }}</td></tr>
 	<tr><td>Resumo</td><td>{{ item.abstract }}</td></tr>
 	<tr><td>Tags</td><td>{{ item.tags }}</td></tr>

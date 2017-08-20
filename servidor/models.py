@@ -55,10 +55,3 @@ class Pesquisa(Modelo):
     pequena_area = models.ForeignKey(PequenasAreas, null=True)
     abstract = models.TextField()
     tags = models.TextField()
-	# def __unicode__ (self):
-	# 	return self.abstract.encode('utf-8')
-	# def __unicode__ (self):
-	# 	return self.nivel.encode('utf-8')
-
-
-
