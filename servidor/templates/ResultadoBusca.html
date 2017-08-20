@@ -3,38 +3,7 @@
 {% include "head.html" %}
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-   <img src="http://www.scs.usp.br/identidadevisual/wp-content/uploads/2013/08/usp-logo-png.png" width="110" height="90" alt="" border="0" style=" top: -5px;">
-   <img src="https://uspdigital.usp.br/comumwebdev/imagens/cabecalho/usp-logo-texto.png" alt="" width="220" height="44" border="0" style="position: relative; top: 3px;">
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#pos">Página Inicial</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="jumbotron text-left"><br>
-  <h2>
-  <img src="http://imageshack.com/a/img923/5760/A3M7V5.jpg" width="220" height="150" alt="" border="0" style="margin-right: 50px; position: relative; top: -3px;">
-  Resultados para a busca </h2>
-  <form action="/search" method="POST">
-    <div class="input-group">
-      <input type="pesquisa" class="form-control" size="5" placeholder="Fazer nova busca" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Pesquisa</button>
-      </div>
-    </div>
-  </form>
-  </div>
+{% include "topo-busca.html" %}
 
   <div class="container-fluid text-left">
 {% if titulo %}
@@ -59,6 +28,15 @@
 	<h2>Itens na <b>área</b> "{{query}}"</h2>
 	<ul>
 		{% for item in pequena_area  %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% if instituto %}
+	<h2>Itens no <b>instituto</b> "{{query}}"</h2>
+	<ul>
+		{% for item in instituto  %}
 		        {% include "pesquisa.html" %}
 		{% endfor %}
 	</ul>
