@@ -11,6 +11,7 @@ def simple_search(request):
 		'status': 200,
 		'query': query,
 		'titulo': Pesquisa.objects.filter(nome__icontains=query),
+		'pesquisador': Pesquisa.objects.filter
 		'pequena_area': Pesquisa.objects.filter(pequena_area__nome__icontains=query),
 		'abstract': Pesquisa.objects.filter(abstract__icontains=query),
 		'tags': Pesquisa.objects.filter(tags__icontains=query),

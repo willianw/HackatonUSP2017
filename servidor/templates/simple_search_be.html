@@ -9,6 +9,15 @@
 	</ul>
 {% endif %}
 
+{% if titulo %}
+	<h2>Itens com pesquisador(a) "{{query}}"</h2>
+	<ul>
+		{% for item in titulo %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
+	</ul>
+{% endif %}
+
 {% if abstract %}
 	<h2>Itens com resumo "{{query}}"</h2>
 	<ul>
