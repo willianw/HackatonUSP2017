@@ -265,11 +265,11 @@
 
 <div class="jumbotron text-center">
   <img src="http://imageshack.com/a/img923/5760/A3M7V5.jpg" width="350" height="200" alt="" border="0" style="position: relative; top: -3px;">
-  <form>
+  <form action="/search" method="POST">{% csrf_token %}
     <div class="input-group">
-      <input type="pesquisa" class="form-control" size="5" placeholder="Procure por artigos científicos aqui" required>
+      <input name="query" type="pesquisa" class="form-control" size="5" placeholder="Procure por artigos científicos aqui" required>
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Pesquisa</button>
+        <input type="button" class="btn btn-danger" value="Pesquisa">
       </div>
     </div>
   </form>

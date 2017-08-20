@@ -27,7 +27,7 @@ def simple_search(request):
 			'tags': Pesquisa.objects.filter(tags__icontains=query),
 		}
 		print "context:", context
-		return render(request, 'simple_search_be.html', context)
+		return render(request, 'ResultadoBusca.html', context)
 
 def pesquisador_search(request):
 	if request.method == 'GET':

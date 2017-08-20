@@ -274,27 +274,50 @@
   </div>
 
   <div class="container-fluid text-left">
-  <ul>
-  <li>1. Y. Kohayakawa, An application of algebraic topology in the theory of graphs, Master’s
-thesis, Institute of Mathematics and Statistics, University of S˜ao Paulo, 1986, In
-Portuguese.</li> <br>
-<li>2. , Extremal combinatorics and the evolution of random graphs, Ph.D. thesis,
-Dept of Pure Mathematics and Mathematical Statistics, University of Cambridge,
-1990.</li><br>
-<li>3. , Topics in Ramsey theory and extremal combinatorics, Institute of Mathematics
-and Statistics, University of S˜ao Paulo, 1996, manuscript submitted for the
-degree of Livre-Docˆencia at the University of S˜ao Paulo, in Portuguese.</li><br>
-<li>4. , A note on kernels of intersecting families, European Journal of Combinatorics
-11 (1990), 155–164.</li><br>
-<li>5. , A note on induced cycles in Kneser graphs, Combinatorica 11 (1991), 245–
-251.</li><br>
-<li>6. B. Bollob´as and Y. Kohayakawa, The hitting time of Hamilton cycles in random
-bipartite graphs, Graph Theory, Combinatorics, Algorithms, and Applications
-(Philadelphia) (Y. Alavi, F. Chung, R. Graham, and D. Hsu, eds.), SIAM, 1991,
-pp. 26–41.</li><br>
+{% if titulo %}
+	<h2>Itens com <b>título</b> "{{query}}"</h2>
+	<ul>
+		{% for item in titulo %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% if pesquisador %}
+	<h2>Itens com <b>pesquisador(a)</b> "{{query}}"</h2>
+	<ul>
+		{% for item in pesquisador %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% if pequena_area %}
+	<h2>Itens na <b>área</b> "{{query}}"</h2>
+	<ul>
+		{% for item in pequena_area  %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% if abstract %}
+	<h2>Itens com <b>resumo</b> "{{query}}"</h2>
+	<ul>
+	{% for item in abstract %}
+	        {% include "pesquisa.html" %}
+	{% endfor %}
+	</ul>
+{% endif %}
+
+{% if tags %}
+	<h2>Itens com <b>tags</b> "{{query}}"</h2>
+	<ul>
+		{% for item in tags %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
+	</ul>
+{% endif %}
+
   </ul>
   </div>
-
-
-
-
