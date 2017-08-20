@@ -1,0 +1,12 @@
+<html>
+<body>
+	{% for pesquisador in pesquisadores %}
+		<table>
+			<tr><td>Nome</td><td>{{pesquisador.nome}}</td></tr>
+			<tr><td>Instituto</td><td>{{pesquisador.instituicao.nome}}</td></tr>
+			<tr><td>Área</td><td>{{pesquisador.area_conhecimento.nome}}</td></tr>
+		</table>
+
+	{% endfor %}
+</body>
+</html>

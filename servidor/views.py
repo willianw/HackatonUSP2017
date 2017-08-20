@@ -20,3 +20,24 @@ def simple_search(request):
 		}
 		print "context:", context
 		return render(request, 'simple_search_be.html', context)
+
+def pesquisador_search(request):
+	if request.method == 'GET':
+		return render(request, 'busca.html', {'institutos':Instituicao.objects.all(), 'areas_conhecimento': MediasAreas.objects.all()})
+	else:
+		nome = request.POST['nome']
+		instituto = request.POST['instituto']
+		area_conhecimento = request.POST['area_conhecimento']
+
+		result = Pesquisador.objects.all()
+		if nome:
+			result = result.filter(nome__icontains=nome)
+		if instituto:
+			result = result.filter(instituicao__id__exact=instituto)
+		if area_conhecimento:
+			result = result.filter(area_conhecimento__id__exact=area_conhecimento)
+
+		context = {
+			'pesquisadores': result
+		}
+		return render(request, 'pesquisador_search.html', context)
