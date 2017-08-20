@@ -60,3 +60,5 @@ class Pesquisa(Modelo):
 	# def __unicode__ (self):
 	# 	return self.nivel.encode('utf-8')
 
+
+
