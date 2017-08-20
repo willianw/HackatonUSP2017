@@ -53,5 +53,6 @@ class Pesquisador(Modelo):
 class Pesquisa(Modelo):
     pesquisadores = models.ManyToManyField(Pesquisador)
     pequena_area = models.ForeignKey(PequenasAreas, null=True)
+	nivel = models.ForeignKey(GrauDeInstrucao, null=True)
     abstract = models.TextField()
     tags = models.TextField()

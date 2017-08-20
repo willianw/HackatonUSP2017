@@ -1,8 +1,20 @@
 <html>
 	<body>
-		<form action="/search" method="POST">
+		<form action="/pesquisador" method="POST">
 			{% csrf_token %}
-			<input type="text" name="query"/>
+			<input type="text" name="nome"/>
+			<select name="instituto">
+				<option value="">Instituto</option>
+				{% for instituto in institutos %}
+					<option value={{instituto.id}}>{{instituto.nome}}</option>
+				{% endfor %}
+			</select>
+			<select name="area_conhecimento">
+				<option value="">Area</option>
+				{% for area_conhecimento in areas_conhecimento %}
+					<option value={{area_conhecimento.id}}>{{area_conhecimento.nome}}</option>
+				{% endfor %}
+			</select>
 			<input type="submit" value="Pesquisar">
 		</form>
 	</body>
