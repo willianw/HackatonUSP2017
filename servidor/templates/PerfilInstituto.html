@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "head.html" %}
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+{% include "topo.html" %}
+
+<div class="jumbotron text-left"><br>
+  <img src="http://imageshack.com/a/img923/5760/A3M7V5.jpg" width="220" height="90" alt="" border="0" style="position: relative; top: -3px;">
+  <center><h2><b>{{instituto.nome}} - {{instituto.descricao}}</b></h2></center>
+</div>
+
+<div id="services" class="container-fluid text-left">
+  <left><h3><b>Professores atuantes</b></h3><hr></hr>
+	  {% for professor in professores %}
+      <h4><strong><a href="pesquisador?id={{ pesquisador.id }}">{{ pesquisador.nome }}</a></strong></h4>
+	  {% endfor %}
+      </left>
+  <br>
+  <left><h3><b>Atuação Profissional</b></h3>
+  <h4><strong>Universidade de São Paulo</strong><hr></hr></h4>
+  <h4><strong>2015-atual:</strong><br> Vínculo: Servidor Público, Enquadramento Funcional: Professor doutor, Regime: Dedicação exclusiva.</p></h4>
+  </left>
+  </div>

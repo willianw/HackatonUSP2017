@@ -46,9 +46,9 @@ def pesquisador_search(request):
 			result = result.filter(area_conhecimento__id__exact=area_conhecimento)
 
 		context = {
-			'pesquisadores': result
+			'professores': result
 		}
-		return render(request, 'pesquisador_search.html', context)
+		return render(request, 'list_professores.html', context)
 
 def pesquisa_search(request):
 	if request.method == 'GET':
@@ -87,3 +87,13 @@ def pesquisador_view(request):
 	}
 	print context
 	return render(request, 'PerfilPesquisador.html', context)
+
+def instituto_view(request):
+	id = request.GET['instituto']
+	instituto = Instituicao.objects.get(id__exact=id)
+	context = {
+		'instituto': instituto,
+		'pesquisadores': Pesquisador.objects.filter(instituicao__id=id)
+	}
+	print context
+	return render(request, 'PerfilInstituto.html', context)

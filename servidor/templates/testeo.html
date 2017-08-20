@@ -73,9 +73,9 @@
     <br>
       <h2>Institutos</h2>
       <h4>Encontre a produção científica de cada unidade da USP:</h4>
-	  <form action='/institute' method="POST">
+	  <form action='/instituto' method="GET">
 	  {% include "searchfield-instituto.html" %}
-      <button type="button" class="btn btn-outline-danger">Pesquisar</button>
+      <input type="submit" class="btn btn-outline-danger" value="Pesquisar">
       </form>
     </div>
   </div>
@@ -88,11 +88,11 @@
     <br>
       <h2>Pesquisadores</h2>
       <h4>Encontre um pesquisador da USP:</h4>
-      <form>
+      <form action="/researcher" method="POST">{% csrf_token %}
         	{% include "searchfield-nome.html" %}
         	{% include "searchfield-area_conhecimento.html" %}
         	{% include "searchfield-instituto.html" %}
-      		<button type="button" class="btn btn-outline-danger">Pesquisar</button>
+      		<input type="submit" class="btn btn-outline-danger" value="Pesquisar">
       </form>
 
     </div>

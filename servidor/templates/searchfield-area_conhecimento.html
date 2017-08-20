@@ -1,6 +1,6 @@
 <label class="form-control-label" for="area_conhecimento">Área de pesquisa</label>
 <select name="area_conhecimento" class="form-control form-control-sm">
-	<option>Escolha</option>
+	<option value="">Escolha</option>
   {% for area in areas_conhecimento%}
 	<option value={{area.id}}>{{area.nome}}</option>
   {% endfor %}

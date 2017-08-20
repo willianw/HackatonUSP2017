@@ -1,6 +1,6 @@
 <label class="form-control-label" for="instituto">Unidade USP</label>
 <select name="instituto" class="form-control form-control-sm">
-	<option>Escolha</option>
+	<option value="">Escolha</option>
 	{% for unidade in institutos%}
 	<option value={{unidade.id}}>{{unidade.nome}}</option>
 	{% endfor %}

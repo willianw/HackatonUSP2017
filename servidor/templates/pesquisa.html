@@ -1,5 +1,5 @@
 {% for pesquisador in item.pesquisadores.all %}
-<a href="pesquisador?id={{ pesquisador.id }}">{{ pesquisador.nome }}</a>,
+{% include "professor-link.html" %},
 {% endfor %}.
 <i>{{ item.nome }}</i>
 . Palavras-chave: {{ item.tags }}
