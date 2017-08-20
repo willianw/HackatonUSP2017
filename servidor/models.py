@@ -24,7 +24,7 @@ class Modelo(models.Model):
 
 class GrandesAreas(Modelo):
 	pass
- # 	tipo = models.CharField(max_length=100)
+# 	tipo = models.CharField(max_length=100)
 
 class MediasAreas(Modelo):
 	grande_area = models.ForeignKey(GrandesAreas, null=True)
@@ -36,23 +36,30 @@ class Campus(Modelo):
 	pass
 
 class Instituicao(Modelo):
-    area = models.ForeignKey(GrandesAreas,  null=True)
-    localizacao = models.ForeignKey(Campus, null=True)
-    #departamentos = models.ManyToManyField(Departamentos)
+	area = models.ForeignKey(GrandesAreas,  null=True)
+	localizacao = models.ForeignKey(Campus, null=True)
+	#departamentos = models.ManyToManyField(Departamentos)
 
 class GrauDeInstrucao(Modelo):
-    pass
+	pass
 
 class Pesquisador(Modelo):
 	instituicao = models.ForeignKey(Instituicao, null=True)
 	area_conhecimento = models.ForeignKey(MediasAreas, null=True)
 	nivel = models.ForeignKey(GrauDeInstrucao, null=True)
-	# def __unicode__ (self):
-	# 	return self.nivel.encode('utf-8')
 
 class Pesquisa(Modelo):
-    pesquisadores = models.ManyToManyField(Pesquisador)
-    pequena_area = models.ForeignKey(PequenasAreas, null=True)
+	pesquisadores = models.ManyToManyField(Pesquisador)
+	pequena_area = models.ForeignKey(PequenasAreas, null=True)
 	nivel = models.ForeignKey(GrauDeInstrucao, null=True)
-    abstract = models.TextField()
-    tags = models.TextField()
+	abstract = models.TextField()
+	tags = models.TextField()
+	bibliografia = models.ManyToManyField("self", blank=True)
+
+	@property
+	def citacoes_diretas(self):
+		i = 0
+		for pesquisa in Pesquisa.objects.all():
+			if self in pesquisa.bibliografia:
+				i = i + 1
+		return i

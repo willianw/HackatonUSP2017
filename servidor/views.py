@@ -4,6 +4,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
 
+def home(request):
+	context = {
+		'institutos': Instituicao.objects.all(),
+		'pequenas_areas': PequenasAreas.objects.all(),
+		'niveis': GrauDeInstrucao.objects.all(),
+		'areas_conhecimento': MediasAreas.objects.all()}
+	return render(request, 'testeo.html', context)
+
 def simple_search(request):
 	if request.method == 'GET':
 		return render(request, 'busca.html')
@@ -19,7 +27,7 @@ def simple_search(request):
 			'tags': Pesquisa.objects.filter(tags__icontains=query),
 		}
 		print "context:", context
-		return render(request, 'simple_search_be.html', context)
+		return render(request, 'ResultadoBusca.html', context)
 
 def pesquisador_search(request):
 	if request.method == 'GET':
