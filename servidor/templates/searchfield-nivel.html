@@ -1,0 +1,8 @@
+<label class="form-control-label" for="nivel">Nível acadêmico</label>
+<select name="nivel" class="form-control form-control-sm">
+	<option>Escolha</option>
+	  {% for nivel in niveis%}
+		<option value={{nivel.id}}>{{nivel.nome}}</option>
+	  {% endfor %}
+</select>
+<br>
