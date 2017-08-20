@@ -41,3 +41,31 @@ def pesquisador_search(request):
 			'pesquisadores': result
 		}
 		return render(request, 'pesquisador_search.html', context)
+
+def pesquisa_search(request):
+	if request.method == 'GET':
+		return render(request, 'busca.html', {'institutos':Instituicao.objects.all(), 'areas_conhecimento': MediasAreas.objects.all()})
+	else:
+		titulo = request.POST['nome']
+		pequena_area = request.POST['pequena_area']
+		nivel = request.POST['nivel']
+		abstract = request.POST['abstract']
+		tags = request.POST['tags']
+
+		result = Pesquisador.objects.all()
+		if titulo:
+			result = result.filter(nome__icontains=titulo)
+		if pequena_area:
+			result = result.filter(pequena_area__id__exact=pequena_area)
+		if nivel:
+			result = result.filter(nivel__id__exact=nivel)
+		if abstract:
+			result = result.filter(abstract__icontains=abstract)
+		if tags:
+			result = result.filter(tags__icontains=tags)
+
+
+		context = {
+			'pesquisas': result
+		}
+		return render(request, 'pesquisador_search.html', context)
