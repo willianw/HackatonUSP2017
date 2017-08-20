@@ -17,12 +17,14 @@ def simple_search(request):
 		return render(request, 'busca.html')
 	else:
 		query = request.POST['query']
+		pesquisador = Pesquisa.objects.filter(pesquisadores__nome__icontains=query)
 		context = {
 			'status': 200,
 			'query': query,
 			'titulo': Pesquisa.objects.filter(nome__icontains=query),
-			'pesquisador': Pesquisa.objects.filter(pesquisadores__nome__icontains=query),
+			'pesquisador': pesquisador,
 			'pequena_area': Pesquisa.objects.filter(pequena_area__nome__icontains=query),
+			'instituto': Pesquisa.objects.filter(pesquisadores__instituicao__nome__icontains=query),
 			'abstract': Pesquisa.objects.filter(abstract__icontains=query),
 			'tags': Pesquisa.objects.filter(tags__icontains=query),
 		}
@@ -48,6 +50,7 @@ def pesquisador_search(request):
 		context = {
 			'professores': result
 		}
+		print context
 		return render(request, 'list_professores.html', context)
 
 def pesquisa_search(request):
