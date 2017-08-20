@@ -9,10 +9,19 @@
 	</ul>
 {% endif %}
 
-{% if titulo %}
+{% if pesquisador %}
 	<h2>Itens com pesquisador(a) "{{query}}"</h2>
 	<ul>
-		{% for item in titulo %}
+		{% for item in pesquisador %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
+	</ul>
+{% endif %}
+
+{% if pequena_area %}
+	<h2>Itens com área "{{query}}"</h2>
+	<ul>
+		{% for item in pequena_area  %}
 		        {% include "pesquisa.html" %}
 		{% endfor %}
 	</ul>
@@ -24,6 +33,15 @@
 	{% for item in abstract %}
 	        {% include "pesquisa.html" %}
 	{% endfor %}
+	</ul>
+{% endif %}
+
+{% if tags %}
+	<h2>Itens com tags "{{query}}"</h2>
+	<ul>
+		{% for item in tags %}
+		        {% include "pesquisa.html" %}
+		{% endfor %}
 	</ul>
 {% endif %}
 
