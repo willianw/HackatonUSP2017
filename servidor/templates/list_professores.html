@@ -3,7 +3,8 @@
 	<body>
 		{% include "topo-busca.html" %}
 		{% for pesquisador in professores %}
-			<a href="pesquisador?id={{ pesquisador.id }}">{{ pesquisador.nome }}</a>
+        <div align="center">
+			<a href="pesquisador?id={{ pesquisador.id }}">{{ pesquisador.nome }} - {{pesquisador.instituicao.nome}}</a><br></div>
 		{% endfor %}
 	</body>
 </html>
